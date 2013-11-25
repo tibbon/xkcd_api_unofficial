@@ -1,6 +1,8 @@
 class WebcomicsController < ApplicationController
 	def show
-		@webcomic = Webcomic.where(webcomic_params)
+		@webcomic = Rails.cache.fetch(webcomic_params, expires_in: 1.month) do
+			Webcomic.where(webcomic_params)
+		end
 		render json: @webcomic
 	end
 
