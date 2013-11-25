@@ -49,6 +49,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.2)
     multi_xml (0.5.5)
+    newrelic_rpm (3.6.9.171)
     pg (0.17.0)
     polyglot (0.3.3)
     pry (0.9.12.3)
@@ -113,6 +114,7 @@ PLATFORMS
 DEPENDENCIES
   foreman
   httparty
+  newrelic_rpm
   pg
   pry-rails
   rails (= 4.0.0)
