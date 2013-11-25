@@ -7,7 +7,8 @@ namespace :xkcd do
   	recent_comic = HTTParty.get('http://xkcd.com/info.0.json')
   	last_comic_number = recent_comic["num"]
   	for x in 1..last_comic_number
-  		comic = HTTParty.get("http://xkcd.com/#{x}"/info.0.json)
+  		comic = HTTParty.get("http://xkcd.com/#{x}/info.0.json")
+
   	end
 
   end
@@ -20,4 +21,10 @@ namespace :xkcd do
   task import_recent: :environment do
   end
 
+end
+
+def insert_comic_to_database(comic)
+	Webcomic.create(
+		
+	)
 end
