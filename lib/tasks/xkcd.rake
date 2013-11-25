@@ -7,6 +7,7 @@ namespace :xkcd do
   	for x in 1..last_comic_number
   		comic = HTTParty.get("http://xkcd.com/#{x}/info.0.json")
   		insert_comic_to_database(comic)
+  		puts "Added Comic: #{comic["title"]}"
   	end
 
   end
@@ -30,7 +31,6 @@ def insert_comic_to_database(comic)
 		news: comic["news"],
 		safe_title: comic["safe_title"],
 		transcript: comic["transcript"],
-		title_text: comic["title_text"],
 		alt: comic["alt"],
 		img: comic["img"],
 		title: comic["title"],
