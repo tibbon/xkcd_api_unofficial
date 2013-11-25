@@ -1,7 +1,7 @@
 class WebcomicsController < ApplicationController
 	def show
-	Webcomic.where(webcomic_params)
-	render json: @webcomic
+		@webcomic = Webcomic.where(webcomic_params)
+		render json: @webcomic
 	end
 
 	private
