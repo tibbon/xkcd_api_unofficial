@@ -1,8 +1,11 @@
 source 'https://rubygems.org'
-
+ruby '2.0.0'
 gem 'rails', '4.0.0'
 gem 'rails-api'
 gem 'pg'
+gem 'redis'
+gem 'rack-cache'
+gem 'redis-rack-cache'
 gem 'pry-rails'
 gem 'httparty'
 gem 'unicorn'
