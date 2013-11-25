@@ -12,12 +12,10 @@ namespace :xkcd do
 
   end
 
-  desc "Imports one XKCD comic to database"
-  task import_one: :environment do
-  end
-
   desc "Imports and updates recent to database"
   task import_recent: :environment do
+    recent_comic = HTTParty.get('http://xkcd.com/info.0.json')
+    insert_comic_to_database(comic)
   end
 
 end
