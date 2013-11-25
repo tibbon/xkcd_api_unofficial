@@ -2,10 +2,6 @@ XkcdApiUnofficial::Application.configure do
 
   redis_uri = ENV["REDISCLOUD_URL"]
   config.cache_store = :redis_store, "#{redis_uri}/1"
-  config.action_dispatch.rack_cache = {
-    metastore:   "#{redis_uri}/1/metastore",
-    entitystore: "#{redis_uri}/1/entitystore"
-  }
 
   # Settings specified here will take precedence over those in config/application.rb.
 
