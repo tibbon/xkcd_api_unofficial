@@ -1,6 +1,7 @@
 namespace :xkcd do
   desc "Imports all XKCD comics to database"
   task import_all: :environment do
+  	binding.pry
   end
 
   desc "Imports one XKCD comic to database"
