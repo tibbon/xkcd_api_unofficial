@@ -2,8 +2,8 @@ class WebcomicsController < ApplicationController
 	def show
 		@webcomic_params = webcomic_params
 		if @api_key == "foobar"
-			if @webcomic_params[:limit]
-				@webcomic = Webcomic.where(@webcomic_params).limit(@webcomic_params[:limit])
+			if @webcomic_params[:limit] && @webcomic_params[:offset]
+				@webcomic = Webcomic.where(@webcomic_params).limit(@webcomic_params[:limit]).offset(@webcomic_params[:offset])
 			else
 				@webcomic = Webcomic.where(@webcomic_params)
 			end
