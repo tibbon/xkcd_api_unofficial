@@ -3,7 +3,7 @@ class WebcomicsController < ApplicationController
 		@webcomic_params = webcomic_params
 		if @api_key == "foobar"
 			if !(@limit.empty?) && !(@offset.empty?)
-				@webcomic = Webcomic.where(@webcomic_params).limit(@webcomic_params[:limit]).offset(@webcomic_params[:offset])
+				@webcomic = Webcomic.where(@webcomic_params).limit(@limit.to_i).offset(@offset.to_i)
 			else
 				@webcomic = Webcomic.where(@webcomic_params)
 			end
