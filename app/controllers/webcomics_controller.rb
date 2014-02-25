@@ -2,7 +2,7 @@ class WebcomicsController < ApplicationController
 	def show
 		@webcomic_params = webcomic_params
 		if @api_key == "foobar"
-			if @webcomic_params[:limit] && @webcomic_params[:offset]
+			if !(@limit.empty?) && !(@offset.empty?)
 				@webcomic = Webcomic.where(@webcomic_params).limit(@webcomic_params[:limit]).offset(@webcomic_params[:offset])
 			else
 				@webcomic = Webcomic.where(@webcomic_params)
@@ -21,6 +21,10 @@ class WebcomicsController < ApplicationController
 		params.delete(:action)
 		@api_key = params[:api_key] || ""
 		params.delete(:api_key)
+		@limit = params[:limit] || ""
+		params.delete(:limit)
+		@offset = params[:offset] || ""
+		params.delete(:offset)
 		params
 	end
 end
